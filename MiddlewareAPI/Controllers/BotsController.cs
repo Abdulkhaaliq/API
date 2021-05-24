@@ -22,16 +22,16 @@ namespace MiddlewareAPI.Controllers
 
         // GET: api/Bots
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<BotTable>>> GetBotTables()
+        public async Task<ActionResult<IEnumerable<BotsTable>>> GetBotTables()
         {
-            return await _context.BotTables.ToListAsync();
+            return await _context.BotsTables.ToListAsync();
         }
 
         // GET: api/Bots/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<BotTable>> GetBotTable(int id)
+        public async Task<ActionResult<BotsTable>> GetBotTable(int id)
         {
-            var botTable = await _context.BotTables.FindAsync(id);
+            var botTable = await _context.BotsTables.FindAsync(id);
 
             if (botTable == null)
             {
@@ -44,7 +44,7 @@ namespace MiddlewareAPI.Controllers
         // PUT: api/Bots/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutBotTable(int id, BotTable botTable)
+        public async Task<IActionResult> PutBotTable(int id, BotsTable botTable)
         {
             if (id != botTable.BotId)
             {
@@ -75,9 +75,9 @@ namespace MiddlewareAPI.Controllers
         // POST: api/Bots
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<BotTable>> PostBotTable(BotTable botTable)
+        public async Task<ActionResult<BotsTable>> PostBotTable(BotsTable botTable)
         {
-            _context.BotTables.Add(botTable);
+            _context.BotsTables.Add(botTable);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetBotTable", new { id = botTable.BotId }, botTable);
@@ -87,13 +87,13 @@ namespace MiddlewareAPI.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteBotTable(int id)
         {
-            var botTable = await _context.BotTables.FindAsync(id);
+            var botTable = await _context.BotsTables.FindAsync(id);
             if (botTable == null)
             {
                 return NotFound();
             }
 
-            _context.BotTables.Remove(botTable);
+            _context.BotsTables.Remove(botTable);
             await _context.SaveChangesAsync();
 
             return NoContent();
@@ -101,7 +101,8 @@ namespace MiddlewareAPI.Controllers
 
         private bool BotTableExists(int id)
         {
-            return _context.BotTables.Any(e => e.BotId == id);
+            return _context.BotsTables.Any(e => e.BotId == id);
         }
+
     }
 }

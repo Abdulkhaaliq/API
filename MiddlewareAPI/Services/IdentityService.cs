@@ -5,7 +5,7 @@ using Microsoft.IdentityModel.Tokens;
 using MiddlewareAPI.DataContext;
 using MiddlewareAPI.Models;
 using MiddlewareAPI.Services.Interfaces;
-using RPALibrary;
+
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -21,6 +21,7 @@ namespace MiddlewareAPI.Services
 {
     public class IdentityService : IIdentityService
     {
+
         private readonly RPAdatabaseContext _context;
         private readonly ServiceConfiguration _appSettings;
 

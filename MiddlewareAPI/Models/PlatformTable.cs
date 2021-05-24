@@ -28,8 +28,9 @@ namespace MiddlewareAPI.Models
         [StringLength(50)]
         public string PlatformPassword { get; set; }
 
-        [InverseProperty("Platform")]
-        public virtual UserPlatformTable UserPlatformTable { get; set; }
+        [ForeignKey(nameof(PlatformId))]
+        [InverseProperty(nameof(UserPlatformTable.PlatformTable))]
+        public virtual UserPlatformTable Platform { get; set; }
         [InverseProperty(nameof(PlatformBotTable.Platform))]
         public virtual ICollection<PlatformBotTable> PlatformBotTables { get; set; }
     }

@@ -122,7 +122,7 @@ namespace MiddlewareAPI.Controllers
                 PlatformPassword = platformGroupTable.PlatformPassword
             };
             string[] plats = { "AutomationAnywhere","UiPath","MicrosoftRPA"};
-            var results = Array.Find(plats, s => s.Equals(platformUser.Platform.PlatformName));
+            var results = Array.Find(plats, s => s.Equals(platformUser.PlatformTable.PlatformName));
             PlatformNamesEnums platform = (PlatformNamesEnums)Enum.Parse(typeof(PlatformNamesEnums), results);
 
             if( platform == PlatformNamesEnums.AutomationAnywhere)

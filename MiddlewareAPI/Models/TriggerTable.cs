@@ -8,17 +8,16 @@ using Microsoft.EntityFrameworkCore;
 
 namespace MiddlewareAPI.Models
 {
-    [Table("PlatformBotTable")]
-    public partial class PlatformBotTable
+    [Table("TriggerTable")]
+    public partial class TriggerTable
     {
         [Key]
         public int BotId { get; set; }
-        public int PlatformId { get; set; }
+        [Required]
+        [StringLength(50)]
+        public string IsRunning { get; set; }
 
-        [ForeignKey(nameof(PlatformId))]
-        [InverseProperty(nameof(PlatformTable.PlatformBotTables))]
-        public virtual PlatformTable Platform { get; set; }
-        [InverseProperty("Bot")]
+        [InverseProperty("BotNavigation")]
         public virtual BotsTable BotsTable { get; set; }
     }
 }

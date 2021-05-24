@@ -28,10 +28,10 @@ namespace MiddlewareAPI
 
             services.AddControllers();
 
-                //SQL database connnection
-           services.AddDbContext<RPAdatabaseContext>(options =>
-                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-       
+            //SQL database connnection
+            services.AddDbContext<RPAdatabaseContext>(options =>
+                  options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
             // configure strongly typed settings objects  
             var appSettingsSection = Configuration.GetSection("ServiceConfiguration");
             services.Configure<ServiceConfiguration>(appSettingsSection);

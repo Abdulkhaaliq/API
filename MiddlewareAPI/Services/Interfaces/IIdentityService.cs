@@ -1,6 +1,5 @@
 ﻿using MiddlewareAPI.DataContext;
 using MiddlewareAPI.Models;
-using RPALibrary;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,3 +13,4 @@ namespace MiddlewareAPI.Services.Interfaces
         Task<ResponseModel<TokenModel>> RefreshTokenAsync(TokenModel request);
     }
 }
+

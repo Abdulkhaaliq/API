@@ -15,11 +15,10 @@ namespace MiddlewareAPI.Models
         public int PlatformId { get; set; }
         public int UserId { get; set; }
 
-        [ForeignKey(nameof(PlatformId))]
-        [InverseProperty(nameof(PlatformTable.UserPlatformTable))]
-        public virtual PlatformTable Platform { get; set; }
         [ForeignKey(nameof(UserId))]
         [InverseProperty(nameof(UserTable.UserPlatformTables))]
         public virtual UserTable User { get; set; }
+        [InverseProperty("Platform")]
+        public virtual PlatformTable PlatformTable { get; set; }
     }
 }
